@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gh7UbLvcc0A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\incor\\source\\repos\\signatureBuilder\\signatureBuilder\\signatureBuilder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\incor\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
+  ],
+  "logs": []
+}

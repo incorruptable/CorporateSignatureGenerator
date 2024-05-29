@@ -1,0 +1,7 @@
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.exe
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.dll
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.deps.json
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.runtimeconfig.json
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.dll.config
+C:\Users\incor\Documents\Packaged Programs\signatureBuilder.pdb
+C:\Users\incor\Documents\Packaged Programs\Microsoft.Office.Interop.Excel.dll
