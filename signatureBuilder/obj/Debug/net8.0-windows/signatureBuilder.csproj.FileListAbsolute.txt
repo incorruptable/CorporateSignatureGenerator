@@ -20,3 +20,4 @@ C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\net8.0-w
 C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\net8.0-windows\signatureBuilder.pdb
 C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\net8.0-windows\signatureBuilder.genruntimeconfig.cache
 C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\net8.0-windows\ref\signatureBuilder.dll
+C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\net8.0-windows\signatureBuilder.sourcelink.json
