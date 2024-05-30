@@ -36,6 +36,7 @@ namespace SignatureBuilder
         private void button2_Click(object sender, EventArgs e)
         {
             SingleProcessInfo();
+            MessageBox.Show("Signature Created.");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace SignatureBuilder
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonAbout_Click(object sender, EventArgs e)
         {
             About aboutForm = new About();
             aboutForm.Show();
