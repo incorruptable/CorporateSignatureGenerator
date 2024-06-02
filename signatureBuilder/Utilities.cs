@@ -121,9 +121,9 @@ namespace SignatureBuilder
                     string plainTextContent = GeneratePlainText(employee);
                     string rtfContent = GenerateRtf(employee);
 
-                    File.WriteAllText(Path.Combine(tempDir, "signature.html"), htmlContent);
-                    File.WriteAllText(Path.Combine(tempDir, "signature.txt"), plainTextContent);
-                    File.WriteAllText(Path.Combine(tempDir, "signature.rtf"), rtfContent);
+                    File.WriteAllText(Path.Combine(employeeDir, "signature.html"), htmlContent);
+                    File.WriteAllText(Path.Combine(employeeDir, "signature.txt"), plainTextContent);
+                    File.WriteAllText(Path.Combine(employeeDir, "signature.rtf"), rtfContent);
                 }
                 ZipFile.CreateFromDirectory(tempDir, zipPath);
             }
@@ -131,8 +131,22 @@ namespace SignatureBuilder
             {
                 Directory.Delete(tempDir,true);
             }
+        }
 
+        public void CreateSingleSignature(BatchProcessing.EmployeeData employee)
+        {
+            string sigDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Microsoft\Signatures");
+            Directory.CreateDirectory(sigDir);
+            string employeeDir = Path.Combine(sigDir, employee.EmployeeName);
+            Directory.CreateDirectory(employeeDir);
 
+            string htmlContent = GenerateHtml(employee);
+            string plainTextContent = GeneratePlainText(employee);
+            string rtfContent = GenerateRtf(employee);
+
+            File.WriteAllText(Path.Combine(employeeDir, "signature.html"), htmlContent);
+            File.WriteAllText(Path.Combine(employeeDir, "signature.txt"), plainTextContent);
+            File.WriteAllText(Path.Combine(employeeDir, "signature.rtf"), rtfContent);
         }
 
         static string formatPhoneNumber(string phoneNumber)
