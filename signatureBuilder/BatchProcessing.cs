@@ -218,6 +218,9 @@ namespace SignatureBuilder
                                     case 5:
                                         if (utilities.IsValidPhoneNumber(cellValue))
                                             employeeData.EmployeePhone = cellValue;
+                                        else{
+                                            employeeData.EmployeePhone = Utilities.NumbersOnly(cellValue);
+                                        }
                                         break;
                                     case 6:
                                         employeeData.EmployeeExt = cellValue;

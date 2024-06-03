@@ -48,10 +48,18 @@ namespace SignatureBuilder
 
         internal bool IsValidPhoneNumber(string phoneNumber)
         {
-            Regex pattern1 = new Regex(@"^\(\d{3}\) \d{3}=\d{4}$");
-            Regex pattern2 = new Regex(@"^\d{3}-\d{3}-\d{4}$");
-            Regex pattern3 = new Regex(@"^\d{3}.\d{3}.\d{4}$");
-            return pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber);
+            
+                Regex pattern1 = new Regex(@"^\(\d{3}\) \d{3}-\d{4}$");
+                Regex pattern2 = new Regex(@"^\d{3}-\d{3}-\d{4}$");
+                Regex pattern3 = new Regex(@"^\d{3}.\d{3}.\d{4}$");
+                Regex pattern4 = new Regex(@"^{9}$");
+            if(phoneNumber.Length == 9 && (pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber) || pattern4.IsMatch(phoneNumber))){
+                return pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber) || pattern4.IsMatch(phoneNumber);
+            }
+            else
+            {
+                return false;
+            }
         }
 
         internal static string GenerateHtml(BatchProcessing.EmployeeData employee)
@@ -174,33 +182,6 @@ namespace SignatureBuilder
             File.WriteAllText(Path.Combine(employeeDir, "signature.rtf"), rtfContent);
         }
 
-        static string formatPhoneNumber(string phoneNumber)
-        {
-            /*
-             * Takes the phone number input from the user and styles it to the approved standards
-             */
-            string _formatNumber = phoneNumber;
-            string digitsOnly = Regex.Replace(phoneNumber, "[^0-9]","");
-            
-            if (_formatNumber == "(###) ###-####")
-            {
-                return _formatNumber = Convert.ToInt64(digitsOnly).ToString("(###) ###-####");
-            }
-            else if (_formatNumber == "###.###.####")
-            {
-                return _formatNumber = Convert.ToInt64(digitsOnly).ToString("###.###.####");
-            }
-            else if (_formatNumber == "###-###-####")
-            {
-                return _formatNumber = Convert.ToInt64(digitsOnly).ToString("###-###-####");
-            }
-            else
-            {
-                //Handle unsupported formats.
-                return digitsOnly;
-            }
-        }
-
         static string employeeName (string name = null)
         {
             string sigName = "";
@@ -216,6 +197,19 @@ namespace SignatureBuilder
         private static string GetNumbers(string input)
         {
             return new string(input.Where(c => char.IsDigit(c)).ToArray());
+        }
+
+        public static string NumbersOnly(string input)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (char c in input)
+            {
+                if(char.IsDigit(c))
+                {
+                    result.Append(c);
+                }
+            }
+            return result.ToString();
         }
     }
 }
