@@ -210,8 +210,10 @@ namespace SignatureBuilder
                                     case 3:
                                         employeeData.EmployeeLicense = cellValue;
                                         break;
-                                    case 4:
-                                        employeeData.EmployeeCaricature = cellValue;
+                                    case 7:
+                                        if(utilities.IsValidImg(cellValue))
+                                            employeeData.EmployeeCaricature = cellValue;
+                                        else employeeData.EmployeeCaricature = "";
                                         break;
                                     case 5:
                                         if (utilities.IsValidPhoneNumber(cellValue))
@@ -220,7 +222,7 @@ namespace SignatureBuilder
                                     case 6:
                                         employeeData.EmployeeExt = cellValue;
                                         break;
-                                    case 7:
+                                    case 4:
                                         if (!utilities.IsValidUrl(cellValue))
                                             employeeData.EmployeeEmail = cellValue;
                                         break;

@@ -9,11 +9,36 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SignatureBuilder;
+using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace SignatureBuilder
 {
     internal class Utilities
     {
+        internal bool IsValidImg(string imagePath)
+        {
+            try
+            {
+                using (Image img = Image.FromFile(imagePath))
+                {
+                    return true;
+                }
+            }
+            catch (OutOfMemoryException)
+            {
+                return false;
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         internal bool IsValidUrl(string url)
         {
             Uri uriResult;
@@ -45,10 +70,10 @@ namespace SignatureBuilder
                     <p>Name: {employee.EmployeeName}</p>
                     <p>Title: {employee.EmployeeTitle}</p>
                     <p>License: {employee.EmployeeLicense}</p>
-                    <p>Caricature: <img src ="" {employee.EmployeeCaricature}"" alt=""Caricature""></p>
                     <p>Phone: {employee.EmployeePhone}</p>
                     <p>Extension: {employee.EmployeeExt}</p>
                     <p>Email: {employee.EmployeeEmail}</p>
+                    <p>Caricature: <img src ="" {employee.EmployeeCaricature}"" alt=""Caricature""></p>
                 </body>
                 </html>";
             return htmlContent;
@@ -90,10 +115,10 @@ namespace SignatureBuilder
                 \b0 Name: {encodedEmployeeName}\par
                 Title: {encodedEmployeeTitle}\par
                 License: {encodedEmployeeLicense}\par
-                Caricature: \par\pict\jpegblip{encodedEmployeeCaricature}\par
                 Phone: {encodedEmployeePhone}\par
                 Extension: {encodedEmployeeExt}\par
                 Email: {encodedEmployeeEmail}\par
+                Caricature: \par\pict\jpegblip{encodedEmployeeCaricature}\par
             }}";
 
             return rtfContent;

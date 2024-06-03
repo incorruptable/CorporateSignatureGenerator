@@ -166,7 +166,7 @@ namespace SignatureBuilder
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             // Validate URL format
             if (!utilities.IsValidUrl(url))
             {
