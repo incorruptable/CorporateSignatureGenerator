@@ -36,7 +36,7 @@ namespace SignatureBuilder
         private void button2_Click(object sender, EventArgs e)
         {
             SingleProcessInfo();
-            MessageBox.Show("Signature Created.");
+            MessageBox.Show("Signature files created successfully.\nFile is located in local user signature folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -119,32 +119,21 @@ namespace SignatureBuilder
                 return;
             }
 
-            // Open the SaveFileDialog and process if the user selects a path
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+
+            // Create employee data
+            BatchProcessing.EmployeeData employee = new BatchProcessing.EmployeeData
             {
-                saveFileDialog.Filter = "ZIP files (*.zip)|*.zip";
-                saveFileDialog.Title = "Save ZIP File";
+                EmployeeName = name,
+                EmployeeTitle = title,
+                EmployeeLicense = empLicense,
+                EmployeeEmail = email,
+                EmployeeExt = extension,
+                EmployeePhone = phone,
+                EmployeeCaricature = url
+            };
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-
-                    // Create employee data
-                    BatchProcessing.EmployeeData employee = new BatchProcessing.EmployeeData
-                    {
-                        EmployeeName = name,
-                        EmployeeTitle = title,
-                        EmployeeLicense = empLicense,
-                        EmployeeEmail = email,
-                        EmployeeExt = extension,
-                        EmployeePhone = phone,
-                        EmployeeCaricature = url
-                    };
-
-                    // Create and save ZIP file
-                    utilities.CreateAndSaveZipFile(saveFileDialog.FileName, new List<BatchProcessing.EmployeeData> { employee });
-                    MessageBox.Show("ZIP file created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            // Create and save Signature files
+            utilities.CreateSingleSignature(employee);
         }
 
 
