@@ -36,7 +36,6 @@ namespace SignatureBuilder
         private void button2_Click(object sender, EventArgs e)
         {
             SingleProcessInfo();
-            MessageBox.Show("Signature files created successfully.\nFile is located in local user signature folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -180,6 +180,8 @@ namespace SignatureBuilder
             File.WriteAllText(Path.Combine(employeeDir, "signature.html"), htmlContent);
             File.WriteAllText(Path.Combine(employeeDir, "signature.txt"), plainTextContent);
             File.WriteAllText(Path.Combine(employeeDir, "signature.rtf"), rtfContent);
+
+            MessageBox.Show("Signature files created successfully.\nFile is located in local user signature folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static string employeeName (string name = null)
