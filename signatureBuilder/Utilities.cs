@@ -52,8 +52,8 @@ namespace SignatureBuilder
                 Regex pattern1 = new Regex(@"^\(\d{3}\) \d{3}-\d{4}$");
                 Regex pattern2 = new Regex(@"^\d{3}-\d{3}-\d{4}$");
                 Regex pattern3 = new Regex(@"^\d{3}.\d{3}.\d{4}$");
-                Regex pattern4 = new Regex(@"^{9}$");
-            if(phoneNumber.Length == 9 && (pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber) || pattern4.IsMatch(phoneNumber))){
+                Regex pattern4 = new Regex(@"^{10}$");
+            if(pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber) || pattern4.IsMatch(phoneNumber)){
                 return pattern1.IsMatch(phoneNumber) || pattern2.IsMatch(phoneNumber) || pattern3.IsMatch(phoneNumber) || pattern4.IsMatch(phoneNumber);
             }
             else
