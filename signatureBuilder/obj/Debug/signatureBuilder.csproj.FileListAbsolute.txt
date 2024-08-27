@@ -1,6 +1,0 @@
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\signatureBuilder.csproj.AssemblyReference.cache
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\SignatureBuilder.BatchProcessing.resources
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\signatureBuilder.Form1.resources
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\signatureBuilder.Properties.Resources.resources
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\signatureBuilder.csproj.GenerateResource.cache
-C:\Users\incor\source\repos\signatureBuilder\signatureBuilder\obj\Debug\signatureBuilder.csproj.CoreCompileInputs.cache
