@@ -30,221 +30,233 @@ namespace SignatureBuilder
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.buttonAbout = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            buttonAbout = new Button();
+            richTextBox1 = new RichTextBox();
+            richTextBox2 = new RichTextBox();
+            richTextBox3 = new RichTextBox();
+            richTextBox4 = new RichTextBox();
+            richTextBox5 = new RichTextBox();
+            richTextBox6 = new RichTextBox();
+            richTextBox7 = new RichTextBox();
+            label1 = new Label();
+            colorDialog1 = new ColorDialog();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            checkBox1 = new CheckBox();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(156, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Batch";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(136, 228);
+            button1.Name = "button1";
+            button1.Size = new Size(66, 38);
+            button1.TabIndex = 0;
+            button1.Text = "Batch";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(75,243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Submit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new Point(66, 228);
+            button2.Name = "button2";
+            button2.Size = new Size(66, 38);
+            button2.TabIndex = 1;
+            button2.Text = "Submit";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(318,243);
-            this.button3.Name = "Exit";
-            this.button3.Size = new System.Drawing.Size(75, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new Point(278, 228);
+            button3.Name = "button3";
+            button3.Size = new Size(66, 38);
+            button3.TabIndex = 2;
+            button3.Text = "Exit";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // buttonAbout
             // 
-            this.buttonAbout.Location = new System.Drawing.Point(237,243);
-            this.buttonAbout.Name = "buttonAbout";
-            this.buttonAbout.Size = new System.Drawing.Size(80, 40);
-            this.buttonAbout.TabIndex = 3;
-            this.buttonAbout.Text = "About";
-            this.buttonAbout.UseVisualStyleBackColor = true;
-            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
+            buttonAbout.Location = new Point(207, 228);
+            buttonAbout.Name = "buttonAbout";
+            buttonAbout.Size = new Size(70, 38);
+            buttonAbout.TabIndex = 3;
+            buttonAbout.Text = "About";
+            buttonAbout.UseVisualStyleBackColor = true;
+            buttonAbout.Click += buttonAbout_Click;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(110, 31);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            richTextBox1.Location = new Point(96, 29);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(221, 25);
+            richTextBox1.TabIndex = 4;
+            richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(110, 61);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox2.TabIndex = 9;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            richTextBox2.Location = new Point(96, 57);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(221, 25);
+            richTextBox2.TabIndex = 9;
+            richTextBox2.Text = "";
+            richTextBox2.TextChanged += richTextBox2_TextChanged;
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(110, 91);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox3.TabIndex = 10;
-            this.richTextBox3.Text = "";
-            this.richTextBox3.TextChanged += new System.EventHandler(this.richTextBox3_TextChanged);
+            richTextBox3.Location = new Point(96, 85);
+            richTextBox3.Name = "richTextBox3";
+            richTextBox3.Size = new Size(221, 25);
+            richTextBox3.TabIndex = 10;
+            richTextBox3.Text = "";
+            richTextBox3.TextChanged += richTextBox3_TextChanged;
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(110, 121);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox4.TabIndex = 11;
-            this.richTextBox4.Text = "";
-            this.richTextBox4.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
+            richTextBox4.Location = new Point(96, 113);
+            richTextBox4.Name = "richTextBox4";
+            richTextBox4.Size = new Size(221, 25);
+            richTextBox4.TabIndex = 11;
+            richTextBox4.Text = "";
+            richTextBox4.TextChanged += richTextBox4_TextChanged;
             // 
             // richTextBox5
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(110, 151);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox5.TabIndex = 12;
-            this.richTextBox5.Text = "";
-            this.richTextBox5.TextChanged += new System.EventHandler(this.richTextBox5_TextChanged);
+            richTextBox5.Location = new Point(96, 141);
+            richTextBox5.Name = "richTextBox5";
+            richTextBox5.Size = new Size(106, 25);
+            richTextBox5.TabIndex = 13;
+            richTextBox5.Text = "";
+            richTextBox5.TextChanged += richTextBox6_TextChanged;
             // 
             // richTextBox6
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(110, 181);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox6.TabIndex = 13;
-            this.richTextBox6.Text = "";
-            this.richTextBox6.TextChanged += new System.EventHandler(this.richTextBox6_TextChanged);
+            richTextBox6.Location = new Point(241, 141);
+            richTextBox6.Name = "richTextBox6";
+            richTextBox6.Size = new Size(76, 25);
+            richTextBox6.TabIndex = 12;
+            richTextBox6.Text = "";
+            richTextBox6.TextChanged += richTextBox5_TextChanged;
             // 
             // richTextBox7
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(110, 211);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(252, 26);
-            this.richTextBox7.TabIndex = 14;
-            this.richTextBox7.Text = "";
-            this.richTextBox7.TextChanged += new System.EventHandler(this.richTextBox7_TextChanged);
+            richTextBox7.Location = new Point(96, 169);
+            richTextBox7.Name = "richTextBox7";
+            richTextBox7.Size = new Size(221, 25);
+            richTextBox7.TabIndex = 14;
+            richTextBox7.Text = "";
+            richTextBox7.TextChanged += richTextBox7_TextChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Name: ";
+            label1.AutoSize = true;
+            label1.Location = new Point(31, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Name: ";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 16);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Title: ";
+            label2.AutoSize = true;
+            label2.Location = new Point(32, 60);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Title: ";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "License: ";
+            label3.AutoSize = true;
+            label3.Location = new Point(31, 88);
+            label3.Name = "label3";
+            label3.Size = new Size(52, 15);
+            label3.TabIndex = 7;
+            label3.Text = "License: ";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Email: ";
+            label4.AutoSize = true;
+            label4.Location = new Point(31, 116);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Email: ";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Extension: ";
+            label5.AutoSize = true;
+            label5.Location = new Point(32, 144);
+            label5.Name = "label5";
+            label5.Size = new Size(47, 15);
+            label5.TabIndex = 16;
+            label5.Text = "Phone: ";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 184);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 16);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Phone: ";
+            label6.AutoSize = true;
+            label6.Location = new Point(207, 144);
+            label6.Name = "label6";
+            label6.Size = new Size(29, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Ext: ";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 214);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 16);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "URL: ";
+            label7.AutoSize = true;
+            label7.Location = new Point(33, 172);
+            label7.Name = "label7";
+            label7.Size = new Size(34, 15);
+            label7.TabIndex = 17;
+            label7.Text = "URL: ";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(96, 200);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(113, 19);
+            checkBox1.TabIndex = 18;
+            checkBox1.Text = "Developer Mode";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 306);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.richTextBox7);
-            this.Controls.Add(this.richTextBox6);
-            this.Controls.Add(this.richTextBox5);
-            this.Controls.Add(this.richTextBox4);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.buttonAbout);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Signature Generator";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(393, 287);
+            Controls.Add(checkBox1);
+            Controls.Add(label7);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(richTextBox7);
+            Controls.Add(richTextBox5);
+            Controls.Add(richTextBox6);
+            Controls.Add(richTextBox4);
+            Controls.Add(richTextBox3);
+            Controls.Add(richTextBox2);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(richTextBox1);
+            Controls.Add(buttonAbout);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Name = "Form1";
+            Text = "Signature Generator";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -268,6 +280,7 @@ namespace SignatureBuilder
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private CheckBox checkBox1;
     }
 }
 

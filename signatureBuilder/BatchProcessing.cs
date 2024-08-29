@@ -180,84 +180,88 @@ namespace SignatureBuilder
         {
             var employees = new List<EmployeeData>();
             await Task.Run(() =>
+            {
+                Excel.Application excelApp = null;
+                Excel.Workbook workbook = null;
+                Excel.Worksheet worksheet = null;
+                Excel.Range usedRange = null;
+                try
                 {
-                    Excel.Application excelApp = null;
-                    Excel.Workbook workbook = null;
-                    Excel.Worksheet worksheet = null;
-                    Excel.Range usedRange = null;
-                    try
-                    {
-                        excelApp = new Excel.Application();
-                        workbook = excelApp.Workbooks.Open(filePath);
-                        worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
-                        usedRange = worksheet.UsedRange;
+                    excelApp = new Excel.Application();
+                    workbook = excelApp.Workbooks.Open(filePath);
+                    worksheet = (Excel.Worksheet)workbook.Sheets[1];
+                    usedRange = worksheet.UsedRange;
 
-                        for (int row = 2; row <= usedRange.Rows.Count; row++)
+                    for (int row = 2; row <= usedRange.Rows.Count; row++)
+                    {
+                        EmployeeData employeeData = new EmployeeData();
+                        for (int col = 1; col <= usedRange.Columns.Count; col++)
                         {
-                            EmployeeData employeeData = new EmployeeData();
-                            for (int col = 1; col <= usedRange.Columns.Count; col++)
+                            string cellValue = Convert.ToString((usedRange.Cells[row, col] as Excel.Range)?.Value2);
+
+                            switch (col)
                             {
-                                string cellValue = Convert.ToString((usedRange.Cells[row, col] as Excel.Range).Value2);
-
-                                switch (col)
-                                {
-                                    case 1:
-                                        employeeData.EmployeeName = cellValue;
-                                        break;
-                                    case 2:
-                                        employeeData.EmployeeTitle = cellValue;
-                                        break;
-                                    case 3:
-                                        employeeData.EmployeeLicense = cellValue;
-                                        break;
-                                    case 7:
-                                        if(utilities.IsValidImg(cellValue))
-                                            employeeData.EmployeeCaricature = cellValue;
-                                        else employeeData.EmployeeCaricature = "";
-                                        break;
-                                    case 5:
-                                        if (utilities.IsValidPhoneNumber(cellValue))
-                                            employeeData.EmployeePhone = cellValue;
-                                        else{
-                                            employeeData.EmployeePhone = Utilities.NumbersOnly(cellValue);
-                                        }
-                                        break;
-                                    case 6:
-                                        employeeData.EmployeeExt = cellValue;
-                                        break;
-                                    case 4:
-                                        if (!utilities.IsValidUrl(cellValue))
-                                            employeeData.EmployeeEmail = cellValue;
-                                        break;
-                                }
-
+                                case 1:
+                                    employeeData.EmployeeName = cellValue;
+                                    break;
+                                case 2:
+                                    employeeData.EmployeeTitle = cellValue;
+                                    break;
+                                case 3:
+                                    employeeData.EmployeeLicense = cellValue;
+                                    break;
+                                case 7:
+                                    if(utilities.IsValidImg(cellValue))
+                                        employeeData.EmployeeCaricature = cellValue;
+                                    else employeeData.EmployeeCaricature = "";
+                                    break;
+                                case 5:
+                                    employeeData.EmployeePhone = Utilities.ValidationWorkAround(cellValue);
+                                    break;
+                                case 6:
+                                    employeeData.EmployeeExt = cellValue;
+                                    break;
+                                case 4:
+                                    if (!utilities.IsValidUrl(cellValue))
+                                        employeeData.EmployeeEmail = cellValue;
+                                    break;
                             }
-                            if(!string.IsNullOrEmpty(employeeData.EmployeeName))
-                            {
-                                employees.Add(employeeData);
-                            }
+
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error reading Excel File: {ex.Message}");
-                    }
-                    finally
-                    {
-                        if (workbook != null)
+                        if(!string.IsNullOrEmpty(employeeData.EmployeeName))
                         {
-                            workbook.Close(false);
-                            Marshal.ReleaseComObject(workbook);
+                            employees.Add(employeeData);
                         }
-                        if (excelApp != null)
-                        {
-                            excelApp.Quit();
-                            Marshal.ReleaseComObject(excelApp);
-                        }
-                        if (usedRange != null) Marshal.ReleaseComObject(usedRange);
-                        if (worksheet != null) Marshal.ReleaseComObject(worksheet);
                     }
-                });
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show($"File not found: {ex.Message}");
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show($"Format Error: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error reading Excel File: {ex.Message}");
+                }
+                finally
+                {
+                    if (workbook != null)
+                    {
+                        workbook.Close(false);
+                        Marshal.ReleaseComObject(workbook);
+                    }
+                    if (excelApp != null)
+                    {
+                        excelApp.Quit();
+                        Marshal.ReleaseComObject(excelApp);
+                    }
+                    if (usedRange != null) Marshal.ReleaseComObject(usedRange);
+                    if (worksheet != null) Marshal.ReleaseComObject(worksheet);
+                }
+            });
             return employees;
         }
 

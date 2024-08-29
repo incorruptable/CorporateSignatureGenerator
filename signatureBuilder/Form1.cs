@@ -71,12 +71,12 @@ namespace SignatureBuilder
 
         private void richTextBox5_TextChanged(object sender, EventArgs e)
         {
-            string employeeExtension = richTextBox5.Text;
+            string employeeExtension = richTextBox6.Text;
         }
 
         private void richTextBox6_TextChanged(object sender, EventArgs e)
         {
-            string employeePhone = richTextBox6.Text;
+            string employeePhone = richTextBox5.Text;
         }
 
         private void richTextBox7_TextChanged(object sender, EventArgs e)
@@ -90,8 +90,8 @@ namespace SignatureBuilder
             string title = richTextBox2.Text;
             string empLicense = richTextBox3.Text;
             string email = richTextBox4.Text;
-            string extension = richTextBox5.Text;
-            string phone = richTextBox6.Text;
+            string extension = richTextBox6.Text;
+            string phone = richTextBox5.Text;
             string url = richTextBox7.Text;
 
             // Validate user input
@@ -104,7 +104,7 @@ namespace SignatureBuilder
             }
 
             // Validate URL format
-            if (!utilities.IsValidUrl(url))
+            if (!utilities.IsValidUrl(url) && (url != "" || url != null))
             {
                 MessageBox.Show("Please enter a valid URL.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,12 +112,12 @@ namespace SignatureBuilder
             }
 
             // Validate phone number format
-            if (!utilities.IsValidPhoneNumber(phone))
+            var (isValid, formattedPhoneNumber) = Utilities.IsValidPhoneNumber(phone);
+            if (!isValid)
             {
                 MessageBox.Show("Please enter a valid phone number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
 
             // Create employee data
             BatchProcessing.EmployeeData employee = new BatchProcessing.EmployeeData
@@ -127,12 +127,12 @@ namespace SignatureBuilder
                 EmployeeLicense = empLicense,
                 EmployeeEmail = email,
                 EmployeeExt = extension,
-                EmployeePhone = phone,
+                EmployeePhone = formattedPhoneNumber,
                 EmployeeCaricature = url
             };
 
             // Create and save Signature files
-            utilities.CreateSingleSignature(employee);
+            utilities.CreateSingleSignature(employee, checkBox1.Checked, saveFileDialog);
         }
 
 
@@ -142,8 +142,8 @@ namespace SignatureBuilder
             string title = richTextBox2.Text;
             string empLicense = richTextBox3.Text;
             string email = richTextBox4.Text;
-            string extension = richTextBox5.Text;
-            string phone = richTextBox6.Text;
+            string extension = richTextBox6.Text;
+            string phone = richTextBox5.Text;
             string url = richTextBox7.Text;
 
             // Validate user input
@@ -154,16 +154,17 @@ namespace SignatureBuilder
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-            // Validate URL format
-            if (!utilities.IsValidUrl(url))
+            if (!string.IsNullOrWhiteSpace(url)) 
             {
-                MessageBox.Show("Please enter a valid URL.", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (!utilities.IsValidUrl(url) && (url != "" || url != null))
+                {
+                    MessageBox.Show("Please enter a valid URL.", "Validation Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                } 
             }
-
-            if(!utilities.IsValidPhoneNumber(phone))
+            var (isValid, formattedPhoneNumber) = Utilities.IsValidPhoneNumber(phone);
+            if (!isValid)
             {
                 MessageBox.Show("Please enter a valid phone number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -180,15 +181,27 @@ namespace SignatureBuilder
                     EmployeeLicense = empLicense,
                     EmployeeEmail = email,
                     EmployeeExt = extension,
-                    EmployeePhone = phone,
+                    EmployeePhone = formattedPhoneNumber,
                     EmployeeCaricature = url
                 };
 
                 utilities.CreateAndSaveZipFile(savePath, new List<BatchProcessing.EmployeeData> { employee });
                 MessageBox.Show("ZIP file created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = checkBox1.Checked;
+
+            if (isChecked)
+            {
 
             }
-
+            else
+            {
+                
+            }
         }
     }
 }
