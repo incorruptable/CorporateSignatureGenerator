@@ -1,5 +1,4 @@
-Developed by Scott Berkett
-Input and design requirements by James Wolf Dandy
+Developed by Scott Berkett in accordance with design requirements by James Wolf Dandy
 
 A signature generator for use with Microsoft Outlook/O365 Outlook.
 
