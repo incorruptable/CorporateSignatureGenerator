@@ -33,6 +33,7 @@ namespace SignatureBuilder
 
             public EmployeeData(string employeeName, string employeeTitle, string employeePhone, string employeeCaricature, string employeeLicense, string employeeExt, string employeeEmail)
             {
+                //Constructor for the EmployeeData
                 EmployeeName = employeeName;
                 EmployeeTitle = employeeTitle;
                 EmployeePhone = employeePhone;
@@ -69,6 +70,7 @@ namespace SignatureBuilder
                 string zipFileName = $"{Path.GetFileNameWithoutExtension(fileName)}.zip";
                 string fileExt = Path.GetExtension(fileName);
                 List<Task> fileTasks = new List<Task>();
+                //Switch statement that takes the file extension from the file and assigns the correct function to parse it.
                 switch (fileExt)
                 {
                     case ".json":
@@ -100,6 +102,7 @@ namespace SignatureBuilder
 
         private void ButtonBrowse_Click(object sender, EventArgs e)
         {
+            //Logic for the browse buttons. Sets the filter information for files.
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "CSV files (*.csv)|*.csv|Excel Files |*.xls;*.xlsx;*.xlsm| JSON Files (.json)|*.json"
